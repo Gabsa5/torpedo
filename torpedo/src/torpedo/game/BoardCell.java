@@ -1,3 +1,4 @@
+package game;
 
 public class BoardCell {
 	
@@ -8,6 +9,10 @@ public class BoardCell {
 	private int shipIndex;
 	
 	//Constructor
+	public BoardCell(){
+		
+	}
+	
 	public BoardCell(int cellIndex){
 		this.cellIndex=cellIndex;
 		this.setIsEmptyCell(true);
@@ -18,6 +23,14 @@ public class BoardCell {
 	public int getCellIndex() {
 		return cellIndex;
 	}
+	
+	
+
+	public void setCellIndex(int cellIndex) {
+		this.cellIndex = cellIndex;
+	}
+
+
 
 	//Getter for isEmptyCell
 	public boolean getIsEmptyCell() {

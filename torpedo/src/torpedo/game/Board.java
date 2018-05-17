@@ -1,3 +1,4 @@
+package game;
 import java.util.ArrayList;
 
 public class Board {
@@ -9,6 +10,10 @@ public class Board {
 	private ArrayList<Ship> ships;
 
 	//Constructor
+	public Board(){
+		
+	}
+	
 	public Board(int boardSize){
 		this.boardSize=boardSize;
 		this.setBoardSizeSQ();
@@ -37,6 +42,24 @@ public class Board {
 		return cells;
 	}
 	
+	
+	
+	public void setBoardSize(int boardSize) {
+		this.boardSize = boardSize;
+	}
+
+	public void setBoardSizeSQ(int boardSizeSQ) {
+		this.boardSizeSQ = boardSizeSQ;
+	}
+
+	public void setCells(ArrayList<BoardCell> cells) {
+		this.cells = cells;
+	}
+
+	public void setShips(ArrayList<Ship> ships) {
+		this.ships = ships;
+	}
+
 	//Initialize the cells of the board
 	public void initializeCells() {
 		this.cells = new ArrayList<BoardCell>();

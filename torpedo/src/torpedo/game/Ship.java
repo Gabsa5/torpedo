@@ -1,3 +1,4 @@
+package game;
 import java.util.ArrayList;
 
 /* ToDos
@@ -8,13 +9,19 @@ import java.util.ArrayList;
 public class Ship {
 	
 	//Properties of Ship class
-	private int shipSizeDiff;
-	private int shipSize;
 	private int shipStartIndex;
 	private int	shipEndIndex;
+	
+
+	private int shipSizeDiff;
+	private int shipSize;
 	private ArrayList<ShipPart> shipParts;
 	
 	//Constructor
+	public Ship(){
+		
+	}
+	
 	public Ship(int shipStartIndex, int shipEndIndex){
 		this.shipStartIndex =shipStartIndex;
 		this.shipEndIndex = shipEndIndex;
@@ -62,8 +69,39 @@ public class Ship {
 		}
 	}
 	
+	
+	
+	public int getShipStartIndex() {
+		return shipStartIndex;
+	}
+
+	public void setShipStartIndex(int shipStartIndex) {
+		this.shipStartIndex = shipStartIndex;
+	}
+
+	public int getShipEndIndex() {
+		return shipEndIndex;
+	}
+
+	public void setShipEndIndex(int shipEndIndex) {
+		this.shipEndIndex = shipEndIndex;
+	}
+
+
+	public void setShipSizeDiff(int shipSizeDiff) {
+		this.shipSizeDiff = shipSizeDiff;
+	}
+
+	public void setShipSize(int shipSize) {
+		this.shipSize = shipSize;
+	}
+
+	public void setShipParts(ArrayList<ShipPart> shipParts) {
+		this.shipParts = shipParts;
+	}
+
 	//Gives back the number of the healthy parts of the ship 
-	public int getUnshootedParts() {
+	public int UnshootedParts() {
 		int unshootedParts = 0;
 		for(int i=0; i<this.shipSize; i++)
 		{
@@ -75,7 +113,7 @@ public class Ship {
 	
 	public boolean isDead(){
 		boolean deadShip=false;
-		if(this.getUnshootedParts()==0)
+		if(this.UnshootedParts()==0)
 			deadShip = true;
 		return deadShip;
 	}

@@ -1,4 +1,4 @@
-package torpedo.game;
+package game;
 
 import java.util.ArrayList;
 
@@ -22,17 +22,23 @@ public class Player{
 	/**
 	 * Array of the the player's ships.
 	 */
-	private ArrayList<Ship> ships;
+	private Board playerBoard;
+	
+	private int life;
 	
 	/**
 	 * Create a player.
 	 * @param name
 	 * @param serverFlag
 	 */
-	public Player(String name, boolean serverFlag) {
+	public Player(String name, boolean serverFlag, int boardSize) {
 		
 		this.name = name;
 		this.serverFlag = serverFlag;
+		this.life=5;
+		this.playerBoard=new Board(boardSize);
+		
+		
 		
 	}
 	
@@ -67,4 +73,49 @@ public class Player{
 	public boolean isServer() {
 		return serverFlag;
 	}
+	
+	public void createBoard(int size){
+		this.playerBoard=new Board(size);
+	}
+	
+	public void placeShip(int startIndex, int stopIndex){
+		this.playerBoard.addShip(startIndex, stopIndex);
+	}
+	
+	public void shoot(int index){
+		
+		if(this.playerBoard.getCells().get(index).getIsEmptyCell())
+		{
+			this.playerBoard.getCells().get(index).setIsShootedCell(true);
+			System.out.println("Miss");
+		}else{
+			if(this.playerBoard.getCells().get(index).getIsShootedCell()){
+				System.out.println("Already shooted");
+			}else{
+			System.out.println("Hit");
+			this.playerBoard.getCells().get(index).setIsShootedCell(true);
+			int shipindex=this.playerBoard.getCells().get(index).getShipIndex();
+			Ship shootedShip=this.playerBoard.getShips().get(shipindex);
+			shootedShip.shootShip(index);
+			this.setLife(this.getLife()-1);
+			}
+		}
+	}
+	
+	public Board getPlayerBoard() {
+		return this.playerBoard;
+	}
+	
+	public void setPlayerBoard(Board playerBoard) {
+		this.playerBoard = playerBoard;
+	}
+
+	public int getLife() {
+		return life;
+	}
+
+	public void setLife(int life) {
+		this.life = life;
+	}
+
 }

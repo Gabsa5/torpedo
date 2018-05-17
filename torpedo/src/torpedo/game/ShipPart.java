@@ -1,3 +1,4 @@
+package game;
 
 public class ShipPart {
 	
@@ -6,6 +7,10 @@ public class ShipPart {
 	private int shipPartIndex;
 	
 	//Constructor for ShipPart
+	public ShipPart(){
+		
+	}
+	
 	public ShipPart(int shipPartIndex){
 		this.shipPartIndex=shipPartIndex;
 		this.isUnshooted=true;
@@ -15,6 +20,11 @@ public class ShipPart {
 	public int getShipPartIndex() {
 		return shipPartIndex;
 	}
+	
+	public void setShipPartIndex(int shipPartIndex) {
+		this.shipPartIndex = shipPartIndex;
+	}
+
 
 	//Getter for isUnshooted
 	public boolean getIsUnshooted() {
