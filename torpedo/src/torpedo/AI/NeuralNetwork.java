@@ -353,13 +353,7 @@ public class NeuralNetwork {
 			}
 		}
 		
-		Float[] boardArray = temps.toArray(new Float[0]);
-		for (Float value : boardArray)
-		{
-			System.out.println(value);
-			//System.out.println(i);
-			//i++;			
-		}
+		Float[] boardArray = temps.toArray(new Float[0]);		
 		return(boardArray);
 	}
 	
